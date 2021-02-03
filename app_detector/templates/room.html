@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  {% load staticfiles %}
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tornado WebRTC Example</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{% static 'webrtc-adapter.js' %}"></script>
+    <script src="{% static 'main.js' %}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="videos">
+        <video id="remote" autoplay></video>
+        <video id="local" autoplay muted></video>
+      </div>
+    </div>
+    <footer>
+      <span id="status" class="small"></span>
+    </footer>
+  </body>
+</html>
