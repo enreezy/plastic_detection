@@ -104,7 +104,6 @@ class JSONImage(APIView):
                 with graphA.as_default():
                     from classification.cnn import classify
                     label = classify(gray_image)
-                    print(label["class"], "class")
                     data.append([box[0],box[1],box[2],box[3], label["confidence"], int(label["class"])])
 
 
@@ -112,8 +111,12 @@ class JSONImage(APIView):
             #image = cv2.rectangle(original_image)
             
             #image = utils.draw_bbox(original_image, bboxes, '')
-            path = "D:\\programming\\plastic_detection\\plastic_detection\\app_detector\\static\\"
-            cv2.imwrite(path + "test1.jpg", image)
+            currentDirectory = os.getcwd()
+            full_path = os.path.dirname(os.path.realpath(__file__))
+            imagePath = os.path.join(full_path, "static")
+            path = os.path.join(imagePath, "test1.jpg")
+            print(path, "path")
+            cv2.imwrite(path, image)
 
             print(data)
             print(bboxes)

@@ -204,9 +204,14 @@
                     if(response != 0){
                         $("#output").attr("src","http://localhost:8080/static/test1.jpg"); 
                     }else{
-                        alert('file not uploaded');
+                        //alert('file not uploaded');
+                        console.log(response);
                     }
                 },
+                 error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 },
             });
         });
       });
